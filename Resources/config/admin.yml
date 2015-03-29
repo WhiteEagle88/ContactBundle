@@ -1,33 +1,33 @@
 services:
     sonata.admin.contact:
-        class: Grossum\ContactBundle\Admin\ContactAdmin
+        class: %grossum_contact.contact.admin.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: group.main, label: "Контакты" }
         arguments:
             - ~
-            - Grossum\ContactBundle\Entity\Contact
+            - %grossum_contact.contact.entity.class%
             - ~
         calls:
             - [ setContactManager, [@grossum_contact.contact.manager]]
 
     sonata.admin.contact_to_email:
-        class: Grossum\ContactBundle\Admin\ContactToEmailAdmin
+        class: %grossum_contact.contact_to_email.admin.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "E-Mail'ы" }
         arguments:
             - ~
-            - Grossum\ContactBundle\Entity\ContactToEmail
+            - %grossum_contact.contact_to_email.entity.class%
             - ~
         calls:
             - [ setContactToEmailManager, [@grossum_contact.contact_to_email.manager]]
 
     sonata.admin.contact_to_phone:
-        class: Grossum\ContactBundle\Admin\ContactToPhoneAdmin
+        class: %grossum_contact.contact_to_phone.admin.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "Телефоны" }
         arguments:
             - ~
-            - Grossum\ContactBundle\Entity\ContactToPhone
+            - %grossum_contact.contact_to_phone.entity.class%
             - ~
         calls:
             - [ setContactToPhoneManager, [@grossum_contact.contact_to_phone.manager]]

@@ -1,4 +1,10 @@
 parameters:
+    grossum_contact.contact.admin.class: Grossum\ContactBundle\Admin\ContactAdmin
+    grossum_contact.contact_to_email.admin.class: Grossum\ContactBundle\Admin\ContactToEmailAdmin
+    grossum_contact.contact_to_phone.admin.class: Grossum\ContactBundle\Admin\ContactToPhoneAdmin
+    grossum_contact.contact.entity.class: Grossum\ContactBundle\Entity\Contact
+    grossum_contact.contact_to_email.entity.class: Grossum\ContactBundle\Entity\ContactToEmail
+    grossum_contact.contact_to_phone.entity.class: Grossum\ContactBundle\Entity\ContactToPhone
     grossum_contact.contact.manager.class: Grossum\ContactBundle\Entity\EntityManager\ContactManager
     grossum_contact.contact_to_email.manager.class: Grossum\ContactBundle\Entity\EntityManager\ContactToEmailManager
     grossum_contact.contact_to_phone.manager.class: Grossum\ContactBundle\Entity\EntityManager\ContactToPhoneManager
