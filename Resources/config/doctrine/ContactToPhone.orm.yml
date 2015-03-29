@@ -1,0 +1,30 @@
+Grossum\ContactBundle\Entity\ContactToPhone:
+    type: mappedSuperclass
+    table: contact_to_phone
+    repositoryClass: Grossum\ContactBundle\Entity\Repository\ContactToPhoneRepository
+    id:
+        id:
+            type: integer
+            unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        phone:
+            type: string
+            length: 255
+        enabled:
+            type: boolean
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+    manyToOne:
+        contact:
+            targetEntity: Contact
+    lifecycleCallbacks:
+            prePersist: [setCreatedAtValue, setUpdatedAtValue]
+            preUpdate: [setUpdatedAtValue]
+

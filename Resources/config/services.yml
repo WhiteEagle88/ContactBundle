@@ -1,0 +1,15 @@
+services:
+    grossum_contact.contact.manager:
+        class: %grossum_contact.contact.manager.class%
+        arguments:
+            - @grossum_core.entity_manager
+
+    grossum_contact.contact_to_email.manager:
+        class: %grossum_contact.contact_to_email.manager.class%
+        arguments:
+            - @grossum_core.entity_manager
+
+    grossum_contact.contact_to_phone.manager:
+        class: %grossum_contact.contact_to_phone.manager.class%
+        arguments:
+            - @grossum_core.entity_manager

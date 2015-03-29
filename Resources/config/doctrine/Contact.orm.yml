@@ -1,0 +1,33 @@
+Grossum\ContactBundle\Entity\Contact:
+    type: mappedSuperclass
+    table: contact
+    repositoryClass: Grossum\ContactBundle\Entity\Repository\ContactRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+            options:
+                unsigned: true
+    fields:
+        name:
+            type: string
+            length: 255
+        googleMapsLink:
+            type: text
+            column: google_maps_link
+            nullable: true
+        enabled:
+            type: boolean
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+    lifecycleCallbacks:
+        prePersist: [setCreatedAtValue, setUpdatedAtValue]
+        preUpdate: [setUpdatedAtValue]

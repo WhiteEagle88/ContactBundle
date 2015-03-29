@@ -1,0 +1,38 @@
+{
+    "name" : "grossum/contact-bundle",
+    "description" : "This bundle added contact entity with fields: address, link for map, many phones and many e-mails",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Dmytro Boiko",
+        "email" : "dboyko@grossum.com"
+    }],
+    "keywords" : [
+        "contact bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require": {
+        "php": ">=5.5.2",
+        "symfony/framework-bundle": "~2.1",
+        "sonata-project/core-bundle": "~2.2",
+        "sonata-project/cache": "~1.0"
+    },
+    "require-dev": {
+        "knplabs/knp-menu-bundle": "~2.0",
+        "sonata-project/admin-bundle": "~2.2"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Grossum\\ContactBundle" : ""
+        }
+    },
+    "target-dir" : "Grossum/ContactBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "0.1-dev"
+        }
+    }
+}
