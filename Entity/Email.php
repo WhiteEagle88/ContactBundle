@@ -3,24 +3,21 @@
 namespace Grossum\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Grossum\ContactBundle\Entity\Contact;
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
 /**
- * ContactToPhone
+ * Email
  */
-class ContactToPhone
+class Email
 {
     use DateTimeControlTrait;
-    /**
-     * @var integer
-     */
+
     private $id;
 
     /**
      * @var string
      */
-    private $phone;
+    private $email;
 
     /**
      * @var boolean
@@ -37,11 +34,6 @@ class ContactToPhone
      */
     private $updatedAt;
 
-    /**
-     * @var Contact
-     */
-    private $contact;
-
 
     /**
      * Get id
@@ -54,33 +46,33 @@ class ContactToPhone
     }
 
     /**
-     * Set phone
+     * Set email
      *
-     * @param string $phone
-     * @return ContactToPhone
+     * @param string $email
+     * @return Email
      */
-    public function setPhone($phone)
+    public function setEmail($email)
     {
-        $this->phone = $phone;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get phone
+     * Get email
      *
      * @return string
      */
-    public function getPhone()
+    public function getEmail()
     {
-        return $this->phone;
+        return $this->email;
     }
 
     /**
      * Set enabled
      *
      * @param boolean $enabled
-     * @return ContactToPhone
+     * @return Email
      */
     public function setEnabled($enabled)
     {
@@ -103,7 +95,7 @@ class ContactToPhone
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return ContactToPhone
+     * @return Email
      */
     public function setCreatedAt($createdAt)
     {
@@ -126,7 +118,7 @@ class ContactToPhone
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return ContactToPhone
+     * @return Email
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -146,33 +138,10 @@ class ContactToPhone
     }
 
     /**
-     * Set contact
-     *
-     * @param Contact $contact
-     * @return ContactToPhone
-     */
-    public function setContact(Contact $contact = null)
-    {
-        $this->contact = $contact;
-
-        return $this;
-    }
-
-    /**
-     * Get contact
-     *
-     * @return Contact
-     */
-    public function getContact()
-    {
-        return $this->contact;
-    }
-
-    /**
      * @return string
      */
     public function __toString()
     {
-        return $this->getPhone() ?: "Новый телефон";
+        return $this->getEmail() ?: "Новый e-mail";
     }
 }

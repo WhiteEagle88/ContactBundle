@@ -12,18 +12,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class ContactRepository extends EntityRepository
 {
-    public function findAllEnabled()
-    {
-        $query = $this->createQueryBuilder('contact');
-
-        $query
-            ->leftJoin('contact.phone', 'phone', 'WITH', 'phone.enabled = :enabled')
-            ->addSelect('phone')
-            ->leftJoin('contact.email', 'email', 'WITH', 'email.enabled = :enabled')
-            ->addSelect('email')
-            ->where('contact.enabled = :enabled')
-            ->setParameter('enabled', true);
-
-        return $query->getQuery()->getResult();
-    }
 }

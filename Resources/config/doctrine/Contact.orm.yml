@@ -2,14 +2,6 @@ Grossum\ContactBundle\Entity\Contact:
     type: mappedSuperclass
     table: contact
     repositoryClass: Grossum\ContactBundle\Entity\Repository\ContactRepository
-    id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: IDENTITY
-            options:
-                unsigned: true
     fields:
         name:
             type: string

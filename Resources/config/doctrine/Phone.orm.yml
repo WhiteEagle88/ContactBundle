@@ -1,16 +1,9 @@
-Grossum\ContactBundle\Entity\ContactToEmail:
+Grossum\ContactBundle\Entity\Phone:
     type: mappedSuperclass
-    table: contact_to_email
-    repositoryClass: Grossum\ContactBundle\Entity\Repository\ContactToEmailRepository
-    id:
-        id:
-            type: integer
-            unsigned: true
-            id: true
-            generator:
-                strategy: IDENTITY
+    table: phone
+    repositoryClass: Grossum\ContactBundle\Entity\Repository\PhoneRepository
     fields:
-        email:
+        phone:
             type: string
             length: 255
         enabled:
@@ -21,9 +14,6 @@ Grossum\ContactBundle\Entity\ContactToEmail:
         updatedAt:
             type: datetime
             column: updated_at
-    manyToOne:
-        contact:
-            targetEntity: Contact
     lifecycleCallbacks:
             prePersist: [setCreatedAtValue, setUpdatedAtValue]
             preUpdate: [setUpdatedAtValue]

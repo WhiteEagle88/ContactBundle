@@ -2,7 +2,6 @@
 
 namespace Grossum\ContactBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
@@ -12,54 +11,33 @@ use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 class Contact
 {
     use DateTimeControlTrait;
-    /**
-     * @var integer
-     */
-    private $id;
+
+    protected $id;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $googleMapsLink;
+    protected $googleMapsLink;
 
     /**
      * @var boolean
      */
-    private $enabled;
+    protected $enabled;
 
     /**
      * @var \DateTime
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      */
-    private $updatedAt;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $phone;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $email;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->phone = new ArrayCollection();
-        $this->email = new ArrayCollection();
-    }
+    protected $updatedAt;
 
     /**
      * Get id

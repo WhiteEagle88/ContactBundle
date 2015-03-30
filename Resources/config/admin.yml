@@ -10,24 +10,24 @@ services:
         calls:
             - [ setContactManager, [@grossum_contact.contact.manager]]
 
-    sonata.admin.contact_to_email:
-        class: %grossum_contact.contact_to_email.admin.class%
+    sonata.admin.email:
+        class: %grossum_contact.email.admin.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "E-Mail'ы" }
         arguments:
             - ~
-            - %grossum_contact.contact_to_email.entity.class%
+            - %grossum_contact.email.entity.class%
             - ~
         calls:
-            - [ setContactToEmailManager, [@grossum_contact.contact_to_email.manager]]
+            - [ setEmailManager, [@grossum_contact.email.manager]]
 
-    sonata.admin.contact_to_phone:
-        class: %grossum_contact.contact_to_phone.admin.class%
+    sonata.admin.phone:
+        class: %grossum_contact.phone.admin.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "Телефоны" }
         arguments:
             - ~
-            - %grossum_contact.contact_to_phone.entity.class%
+            - %grossum_contact.phone.entity.class%
             - ~
         calls:
-            - [ setContactToPhoneManager, [@grossum_contact.contact_to_phone.manager]]
+            - [ setPhoneManager, [@grossum_contact.phone.manager]]

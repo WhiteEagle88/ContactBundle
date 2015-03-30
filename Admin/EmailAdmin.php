@@ -2,8 +2,8 @@
 
 namespace Grossum\ContactBundle\Admin;
 
-use Grossum\ContactBundle\Entity\ContactToEmail;
-use Grossum\ContactBundle\Entity\EntityManager\ContactToEmailManager;
+use Grossum\ContactBundle\Entity\Email;
+use Grossum\ContactBundle\Entity\EntityManager\EmailManager;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -11,10 +11,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ContactToEmailAdmin extends Admin
+class EmailAdmin extends Admin
 {
-    /** @var  ContactToEmailManager $contactToEmailManager */
-    private $contactToEmailManager;
+    /** @var  EmailManager $emailManager */
+    private $emailManager;
 
     /**
      * Fields to be shown on create/edit forms
@@ -54,17 +54,17 @@ class ContactToEmailAdmin extends Admin
     }
 
     /**
-     * @param ContactToEmailManager $contactToEmailManager
+     * @param EmailManager $emailManager
      */
-    public function setContactToEmailManager(ContactToEmailManager $contactToEmailManager)
+    public function setEmailManager(EmailManager $emailManager)
     {
-        $this->contactToEmailManager = $contactToEmailManager;
+        $this->emailManager = $emailManager;
     }
 
 
     /**
      * @param ErrorElement $errorElement
-     * @param ContactToEmail $object
+     * @param Email $object
      */
     public function validate(ErrorElement $errorElement, $object)
     {
