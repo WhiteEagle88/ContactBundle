@@ -6,7 +6,7 @@ Grossum\ContactBundle\Entity\Contact:
         name:
             type: string
             length: 255
-	    nullable: true
+	        nullable: true
         googleMapsLink:
             type: text
             column: google_maps_link
