@@ -1,0 +1,16 @@
+grossum_contact:
+    admin:
+        enabled: 'Enabled'
+        contact:
+            label: 'Contact'
+            plural_label: 'Contacts'
+            name: 'Name'
+            google_maps_code: 'Google Maps Code'
+            enabled: 'Enabled'
+        email:
+            label: 'E-mail'
+            plural_label: 'E-mails'
+        phone:
+            label: 'Phone'
+            plural_label: 'Phones'
+

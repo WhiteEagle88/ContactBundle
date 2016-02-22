@@ -3,20 +3,32 @@
 namespace Grossum\ContactBundle\Entity\EntityManager;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\ObjectRepository;
+
 use Grossum\CoreBundle\Entity\EntityTrait\SaveUpdateInManagerTrait;
 
 class PhoneManager
 {
     use SaveUpdateInManagerTrait;
 
-    private $repository;
+    /**
+     * @var string
+     */
+    protected $class;
 
-    /** @var  ObjectManager */
+    /**
+     * @var ObjectRepository
+     */
+    protected $repository;
+
+    /**
+     * @var ObjectManager
+     */
     private $objectManager;
 
-    public function __construct(ObjectManager $objectManager)
+    public function __construct(ObjectManager $objectManager, $class)
     {
         $this->objectManager = $objectManager;
-        $this->repository    = $objectManager->getRepository('GrossumContactBundle:Phone');
+        $this->class = $class;
     }
 }

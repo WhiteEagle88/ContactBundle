@@ -1,0 +1,11 @@
+Application\Grossum\ContactBundle\Entity\Email:
+    type: entity
+    table: email
+    repositoryClass: Application\Grossum\ContactBundle\Entity\Repository\EmailRepository
+    id:
+        id:
+            type: integer
+            unsigned: true
+            id: true
+            generator:
+                strategy: AUTO

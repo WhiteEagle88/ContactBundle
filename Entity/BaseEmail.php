@@ -3,53 +3,38 @@
 namespace Grossum\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
-/**
- * Email
- */
-class Email
+abstract class BaseEmail
 {
     use DateTimeControlTrait;
-
-    private $id;
 
     /**
      * @var string
      */
-    private $email;
+    protected $email;
 
     /**
-     * @var boolean
+     * @var bool
      */
-    private $enabled;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
+    protected $enabled;
 
     /**
      * @var \DateTime
      */
-    private $updatedAt;
-
+    protected $createdAt;
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @var \DateTime
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $updatedAt;
 
     /**
      * Set email
      *
      * @param string $email
-     * @return Email
+     * @return BaseEmail
      */
     public function setEmail($email)
     {
@@ -71,8 +56,8 @@ class Email
     /**
      * Set enabled
      *
-     * @param boolean $enabled
-     * @return Email
+     * @param bool $enabled
+     * @return BaseEmail
      */
     public function setEnabled($enabled)
     {
@@ -84,7 +69,7 @@ class Email
     /**
      * Get enabled
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -95,7 +80,7 @@ class Email
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Email
+     * @return BaseEmail
      */
     public function setCreatedAt($createdAt)
     {
@@ -118,7 +103,7 @@ class Email
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Email
+     * @return BaseEmail
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -142,6 +127,6 @@ class Email
      */
     public function __toString()
     {
-        return $this->getEmail() ?: "Новый e-mail";
+        return $this->getEmail() ?: "New Email";
     }
 }

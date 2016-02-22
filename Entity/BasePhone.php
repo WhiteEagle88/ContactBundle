@@ -3,29 +3,20 @@
 namespace Grossum\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
-/**
- * Contact
- */
-class Contact
+abstract class BasePhone
 {
     use DateTimeControlTrait;
 
-    protected $id;
-
     /**
      * @var string
      */
-    protected $name;
+    protected $phone;
 
     /**
-     * @var string
-     */
-    protected $googleMapsLink;
-
-    /**
-     * @var boolean
+     * @var bool
      */
     protected $enabled;
 
@@ -40,66 +31,33 @@ class Contact
     protected $updatedAt;
 
     /**
-     * Get id
+     * Set phone
      *
-     * @return integer
+     * @param string $phone
+     * @return BasePhone
      */
-    public function getId()
+    public function setPhone($phone)
     {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Contact
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
+        $this->phone = $phone;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get phone
      *
      * @return string
      */
-    public function getName()
+    public function getPhone()
     {
-        return $this->name;
-    }
-
-    /**
-     * Set googleMapsLink
-     *
-     * @param string $googleMapsLink
-     * @return Contact
-     */
-    public function setGoogleMapsLink($googleMapsLink)
-    {
-        $this->googleMapsLink = $googleMapsLink;
-
-        return $this;
-    }
-
-    /**
-     * Get googleMapsLink
-     *
-     * @return string
-     */
-    public function getGoogleMapsLink()
-    {
-        return $this->googleMapsLink;
+        return $this->phone;
     }
 
     /**
      * Set enabled
      *
-     * @param boolean $enabled
-     * @return Contact
+     * @param bool $enabled
+     * @return BasePhone
      */
     public function setEnabled($enabled)
     {
@@ -111,7 +69,7 @@ class Contact
     /**
      * Get enabled
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -122,7 +80,7 @@ class Contact
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Contact
+     * @return BasePhone
      */
     public function setCreatedAt($createdAt)
     {
@@ -145,7 +103,7 @@ class Contact
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Contact
+     * @return BasePhone
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -169,6 +127,6 @@ class Contact
      */
     public function __toString()
     {
-        return $this->getName() ?: "Новый контакт";
+        return $this->getPhone() ?: "New Phone";
     }
 }

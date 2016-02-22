@@ -1,0 +1,11 @@
+Application\Grossum\ContactBundle\Entity\Phone:
+    type: entity
+    table: phone
+    repositoryClass: Application\Grossum\ContactBundle\Entity\Repository\PhoneRepository
+    id:
+        id:
+            type: integer
+            unsigned: true
+            id: true
+            generator:
+                strategy: AUTO
