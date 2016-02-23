@@ -1,7 +1,6 @@
-Grossum\ContactBundle\Entity\Email:
+Grossum\ContactBundle\Entity\BaseEmail:
     type: mappedSuperclass
     table: email
-    repositoryClass: Grossum\ContactBundle\Entity\Repository\EmailRepository
     fields:
         email:
             type: string

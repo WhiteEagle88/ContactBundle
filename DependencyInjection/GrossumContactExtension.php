@@ -2,6 +2,7 @@
 
 namespace Grossum\ContactBundle\DependencyInjection;
 
+use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -33,6 +34,7 @@ class GrossumContactExtension extends Extension
         $loader->load('classes.yml');
 
         $this->configureParameterClass($container, $config);
+        $this->registerDoctrineMapping($config);
     }
 
     /**
@@ -53,61 +55,58 @@ class GrossumContactExtension extends Extension
     {
         $collector = DoctrineCollector::getInstance();
 
-        $collector->addAssociation($config['class']['media'], 'mapOneToMany', array(
-            'fieldName'     => 'galleryHasMedias',
-            'targetEntity'  => $config['class']['gallery_has_media'],
-            'cascade'       => array(
-                'persist',
-            ),
-            'mappedBy'      => 'media',
-            'orphanRemoval' => false,
-        ));
-
-        $collector->addAssociation($config['class']['gallery_has_media'], 'mapManyToOne', array(
-            'fieldName'     => 'gallery',
-            'targetEntity'  => $config['class']['gallery'],
+        $collector->addAssociation($config['class']['email'], 'mapManyToOne', array(
+            'fieldName'     => 'contact',
+            'targetEntity'  => $config['class']['contact'],
             'cascade'       => array(
                 'persist',
             ),
             'mappedBy'      => null,
-            'inversedBy'    => 'galleryHasMedias',
+            'inversedBy'    => 'emails',
             'joinColumns'   => array(
                 array(
-                    'name'                 => 'gallery_id',
+                    'name'                 => 'contact_id',
                     'referencedColumnName' => 'id',
                 ),
             ),
             'orphanRemoval' => false,
         ));
 
-        $collector->addAssociation($config['class']['gallery_has_media'], 'mapManyToOne', array(
-            'fieldName'     => 'media',
-            'targetEntity'  => $config['class']['media'],
+        $collector->addAssociation($config['class']['phone'], 'mapManyToOne', array(
+            'fieldName'     => 'contact',
+            'targetEntity'  => $config['class']['contact'],
             'cascade'       => array(
                 'persist',
             ),
             'mappedBy'      => null,
-            'inversedBy'    => 'galleryHasMedias',
+            'inversedBy'    => 'phones',
             'joinColumns'   => array(
                 array(
-                    'name'                 => 'media_id',
+                    'name'                 => 'contact_id',
                     'referencedColumnName' => 'id',
                 ),
             ),
             'orphanRemoval' => false,
         ));
 
-        $collector->addAssociation($config['class']['gallery'], 'mapOneToMany', array(
-            'fieldName'     => 'galleryHasMedias',
-            'targetEntity'  => $config['class']['gallery_has_media'],
+        $collector->addAssociation($config['class']['contact'], 'mapOneToMany', array(
+            'fieldName'     => 'emails',
+            'targetEntity'  => $config['class']['email'],
             'cascade'       => array(
                 'persist',
             ),
-            'mappedBy'      => 'gallery',
-            'orphanRemoval' => true,
-            'orderBy'       => array(
-                'position'  => 'ASC',
+            'mappedBy'      => 'contact',
+            'orphanRemoval' => false,
+        ));
+
+        $collector->addAssociation($config['class']['contact'], 'mapOneToMany', array(
+            'fieldName'     => 'phones',
+            'targetEntity'  => $config['class']['phone'],
+            'cascade'       => array(
+                'persist',
             ),
+            'mappedBy'      => 'contact',
+            'orphanRemoval' => false,
         ));
     }
 }

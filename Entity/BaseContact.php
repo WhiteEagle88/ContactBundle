@@ -2,6 +2,7 @@
 
 namespace Grossum\ContactBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
@@ -26,6 +27,16 @@ abstract class BaseContact
     protected $enabled;
 
     /**
+     * @var BaseEmail[]|ArrayCollection
+     */
+    protected $emails;
+
+    /**
+     * @var BasePhone[]|ArrayCollection
+     */
+    protected $phones;
+
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -34,6 +45,12 @@ abstract class BaseContact
      * @var \DateTime
      */
     protected $updatedAt;
+
+    public function __construct()
+    {
+        $this->emails = new ArrayCollection();
+        $this->phones = new ArrayCollection();
+    }
 
     /**
      * Set name
@@ -102,6 +119,60 @@ abstract class BaseContact
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * @param BaseEmail $email
+     * @return $this
+     */
+    public function addEmail(BaseEmail $email)
+    {
+        $this->emails[] = $email;
+
+        return $this;
+    }
+
+    /**
+     * @param BaseEmail $email
+     */
+    public function removeEmail(BaseEmail $email)
+    {
+        $this->emails->removeElement($email);
+    }
+
+    /**
+     * @return ArrayCollection|BaseEmail[]
+     */
+    public function getEmails()
+    {
+        return $this->emails;
+    }
+
+    /**
+     * @param BasePhone $phone
+     * @return $this
+     */
+    public function addPhone(BasePhone $phone)
+    {
+        $this->phones[] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * @param BasePhone $phone
+     */
+    public function removePhone(BasePhone $phone)
+    {
+        $this->phones->removeElement($phone);
+    }
+
+    /**
+     * @return ArrayCollection|BasePhone[]
+     */
+    public function getPhones()
+    {
+        return $this->phones;
     }
 
     /**

@@ -17,7 +17,29 @@ class ContactAdmin extends Admin
         $formMapper
             ->add('name', null, ['label' => 'grossum_contact.admin.contact.name'])
             ->add('googleMapsLink', null, ['label' => 'grossum_contact.admin.contact.google_maps_code'])
-            ->add('enabled', null, ['label' => 'grossum_contact.admin.enabled', 'required' => false]);
+            ->add('enabled', null, ['label' => 'grossum_contact.admin.enabled', 'required' => false])
+            ->add(
+                'phones',
+                'sonata_type_collection',
+                [
+                    'label' => 'grossum_contact.admin.phone.label'
+                ],
+                [
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                ]
+            )
+            ->add(
+                'emails',
+                'sonata_type_collection',
+                [
+                    'label' => 'grossum_contact.admin.email.label'
+                ],
+                [
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                ]
+            );
     }
 
     /**

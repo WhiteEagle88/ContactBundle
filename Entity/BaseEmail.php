@@ -21,6 +21,11 @@ abstract class BaseEmail
     protected $enabled;
 
     /**
+     * @var BaseContact
+     */
+    protected $contact;
+
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -74,6 +79,25 @@ abstract class BaseEmail
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * @param BaseContact $contact
+     * @return $this
+     */
+    public function setContact(BaseContact $contact)
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * @return BaseContact
+     */
+    protected function getContact()
+    {
+        return $this->contact;
     }
 
     /**
