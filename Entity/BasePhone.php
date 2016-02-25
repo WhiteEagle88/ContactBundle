@@ -39,7 +39,7 @@ abstract class BasePhone
      * Set phone
      *
      * @param string $phone
-     * @return BasePhone
+     * @return $this
      */
     public function setPhone($phone)
     {
@@ -62,7 +62,7 @@ abstract class BasePhone
      * Set enabled
      *
      * @param bool $enabled
-     * @return BasePhone
+     * @return $this
      */
     public function setEnabled($enabled)
     {
@@ -104,7 +104,7 @@ abstract class BasePhone
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return BasePhone
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -127,7 +127,7 @@ abstract class BasePhone
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return BasePhone
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -151,6 +151,6 @@ abstract class BasePhone
      */
     public function __toString()
     {
-        return $this->getPhone() ?: "New Phone";
+        return $this->getPhone() ?: 'New Phone';
     }
 }

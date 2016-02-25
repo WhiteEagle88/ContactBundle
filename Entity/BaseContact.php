@@ -56,7 +56,7 @@ abstract class BaseContact
      * Set name
      *
      * @param string $name
-     * @return BaseContact
+     * @return $this
      */
     public function setName($name)
     {
@@ -79,7 +79,7 @@ abstract class BaseContact
      * Set googleMapsLink
      *
      * @param string $googleMapsLink
-     * @return BaseContact
+     * @return $this
      */
     public function setGoogleMapsLink($googleMapsLink)
     {
@@ -102,7 +102,7 @@ abstract class BaseContact
      * Set enabled
      *
      * @param bool $enabled
-     * @return BaseContact
+     * @return $this
      */
     public function setEnabled($enabled)
     {
@@ -179,7 +179,7 @@ abstract class BaseContact
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return BaseContact
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -202,7 +202,7 @@ abstract class BaseContact
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return BaseContact
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -226,6 +226,6 @@ abstract class BaseContact
      */
     public function __toString()
     {
-        return $this->getName() ?: "New Contact";
+        return $this->getName() ?: 'New Contact';
     }
 }

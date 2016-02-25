@@ -36,6 +36,9 @@ class ContactManager
         $this->class = $class;
     }
 
+    /**
+     * @return ObjectRepository
+     */
     public function getRepository()
     {
         if (!$this->repository) {

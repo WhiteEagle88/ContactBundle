@@ -39,7 +39,7 @@ abstract class BaseEmail
      * Set email
      *
      * @param string $email
-     * @return BaseEmail
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -56,29 +56,6 @@ abstract class BaseEmail
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set enabled
-     *
-     * @param bool $enabled
-     * @return BaseEmail
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
     }
 
     /**
@@ -101,10 +78,33 @@ abstract class BaseEmail
     }
 
     /**
+     * Set enabled
+     *
+     * @param bool $enabled
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return BaseEmail
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -127,7 +127,7 @@ abstract class BaseEmail
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return BaseEmail
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -151,6 +151,6 @@ abstract class BaseEmail
      */
     public function __toString()
     {
-        return $this->getEmail() ?: "New Email";
+        return $this->getEmail() ?: 'New Email';
     }
 }

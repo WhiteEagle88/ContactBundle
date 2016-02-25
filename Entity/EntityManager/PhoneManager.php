@@ -26,9 +26,25 @@ class PhoneManager
      */
     private $objectManager;
 
+    /**
+     * @param ObjectManager $objectManager
+     * @param string $class
+     */
     public function __construct(ObjectManager $objectManager, $class)
     {
         $this->objectManager = $objectManager;
         $this->class = $class;
+    }
+
+    /**
+     * @return ObjectRepository
+     */
+    public function getRepository()
+    {
+        if (!$this->repository) {
+            $this->repository = $this->objectManager->getRepository($this->class);
+        }
+
+        return $this->repository;
     }
 }
