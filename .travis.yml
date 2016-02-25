@@ -1,0 +1,22 @@
+language: php
+sudo: false
+
+php:
+ - 5.5
+ - 5.6
+ - 7.0
+ - hhvm
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
+
+before_script:
+ - travis_retry composer selfupdate
+ - travis_retry composer install --no-interaction
+
+script:
+ - php ./vendor/bin/phpcs --encoding=utf-8 --extensions=php --standard=psr2 --ignore=vendor .
+ - php ./vendor/bin/phpmd . text rulesets/codesize.xml --exclude vendor
+ - php ./vendor/bin/phpcpd --min-lines 25 --verbose --exclude vendor .
