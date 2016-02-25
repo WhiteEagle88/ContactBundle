@@ -20,7 +20,10 @@
     },
     "require-dev": {
         "knplabs/knp-menu-bundle": "~2.0",
-        "sonata-project/admin-bundle": "~2.2"
+        "sonata-project/admin-bundle": "~2.2",
+        "squizlabs/php_codesniffer": "2.*",
+        "phpmd/phpmd" : "@stable",
+        "sebastian/phpcpd": "*"
     },
     "autoload" : {
         "psr-0" : {
@@ -28,8 +31,6 @@
         }
     },
     "target-dir" : "Grossum/ContactBundle",
-    "repositories" : [{
-    }],
     "extra" : {
     "branch-alias" : {
             "dev-master" : "0.1-dev"
