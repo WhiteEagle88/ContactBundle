@@ -72,7 +72,7 @@ abstract class BaseEmail
     /**
      * @return BaseContact
      */
-    protected function getContact()
+    public function getContact()
     {
         return $this->contact;
     }

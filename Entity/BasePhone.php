@@ -95,7 +95,7 @@ abstract class BasePhone
     /**
      * @return BaseContact
      */
-    protected function getContact()
+    public function getContact()
     {
         return $this->contact;
     }

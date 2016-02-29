@@ -15,8 +15,8 @@ class PhoneAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('phone', null, ['label' => 'Телефон'])
-            ->add('enabled', null, ['label' => 'Включен', 'required' => false]);
+            ->add('phone', null, ['label' => 'grossum_contact.admin.phone.label'])
+            ->add('enabled', null, ['label' => 'grossum_contact.admin.enabled', 'required' => false]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PhoneAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('enabled', null, ['label' => 'Включен']);
+            ->add('enabled', null, ['label' => 'grossum_contact.admin.enabled']);
     }
 
     /**
@@ -34,7 +34,7 @@ class PhoneAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('phone', null, ['label' => 'Телефон'])
-            ->add('enabled', null, ['label' => 'Включен']);
+            ->addIdentifier('phone', null, ['label' => 'grossum_contact.admin.phone.label'])
+            ->add('enabled', null, ['label' => 'grossum_contact.admin.enabled']);
     }
 }

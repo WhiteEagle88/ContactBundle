@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class EmailAdmin extends Admin
 {
     /**
-     * {@inheritdocå}
+     * {@inheritdoc}
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
