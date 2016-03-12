@@ -3,13 +3,16 @@ services:
         class: %grossum_contact.contact.manager.class%
         arguments:
             - @grossum_core.entity_manager
+            - %grossum_contact.contact.entity.class%
 
     grossum_contact.email.manager:
         class: %grossum_contact.email.manager.class%
         arguments:
             - @grossum_core.entity_manager
+            - %grossum_contact.email.entity.class%
 
     grossum_contact.phone.manager:
         class: %grossum_contact.phone.manager.class%
         arguments:
             - @grossum_core.entity_manager
+            - %grossum_contact.phone.entity.class%

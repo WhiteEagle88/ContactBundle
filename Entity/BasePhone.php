@@ -3,53 +3,43 @@
 namespace Grossum\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
-/**
- * Phone
- */
-class Phone
+abstract class BasePhone
 {
     use DateTimeControlTrait;
-
-    private $id;
 
     /**
      * @var string
      */
-    private $phone;
+    protected $phone;
 
     /**
-     * @var boolean
+     * @var bool
      */
-    private $enabled;
+    protected $enabled;
+
+    /**
+     * @var BaseContact
+     */
+    protected $contact;
 
     /**
      * @var \DateTime
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      */
-    private $updatedAt;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $updatedAt;
 
     /**
      * Set phone
      *
      * @param string $phone
-     * @return Phone
+     * @return $this
      */
     public function setPhone($phone)
     {
@@ -71,8 +61,8 @@ class Phone
     /**
      * Set enabled
      *
-     * @param boolean $enabled
-     * @return Phone
+     * @param bool $enabled
+     * @return $this
      */
     public function setEnabled($enabled)
     {
@@ -84,7 +74,7 @@ class Phone
     /**
      * Get enabled
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -92,10 +82,29 @@ class Phone
     }
 
     /**
+     * @param BaseContact $contact
+     * @return $this
+     */
+    public function setContact(BaseContact $contact)
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * @return BaseContact
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
+
+    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Phone
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -118,7 +127,7 @@ class Phone
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Phone
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -142,6 +151,6 @@ class Phone
      */
     public function __toString()
     {
-        return $this->getPhone() ?: "Новый телефон";
+        return $this->getPhone() ?: 'New Phone';
     }
 }

@@ -1,3 +1,0 @@
-grossum_contact_page:
-    path:     /contacts
-    defaults: { _controller: GrossumContactBundle:Contact:index }

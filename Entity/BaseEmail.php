@@ -3,53 +3,43 @@
 namespace Grossum\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
-/**
- * Email
- */
-class Email
+abstract class BaseEmail
 {
     use DateTimeControlTrait;
-
-    private $id;
 
     /**
      * @var string
      */
-    private $email;
+    protected $email;
 
     /**
-     * @var boolean
+     * @var bool
      */
-    private $enabled;
+    protected $enabled;
+
+    /**
+     * @var BaseContact
+     */
+    protected $contact;
 
     /**
      * @var \DateTime
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      */
-    private $updatedAt;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $updatedAt;
 
     /**
      * Set email
      *
      * @param string $email
-     * @return Email
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -69,10 +59,29 @@ class Email
     }
 
     /**
+     * @param BaseContact $contact
+     * @return $this
+     */
+    public function setContact(BaseContact $contact)
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * @return BaseContact
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
+
+    /**
      * Set enabled
      *
-     * @param boolean $enabled
-     * @return Email
+     * @param bool $enabled
+     * @return $this
      */
     public function setEnabled($enabled)
     {
@@ -84,7 +93,7 @@ class Email
     /**
      * Get enabled
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -95,7 +104,7 @@ class Email
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Email
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -118,7 +127,7 @@ class Email
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Email
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -142,6 +151,6 @@ class Email
      */
     public function __toString()
     {
-        return $this->getEmail() ?: "Новый e-mail";
+        return $this->getEmail() ?: 'New Email';
     }
 }

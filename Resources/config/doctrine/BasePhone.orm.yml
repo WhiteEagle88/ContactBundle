@@ -1,9 +1,8 @@
-Grossum\ContactBundle\Entity\Email:
+Grossum\ContactBundle\Entity\BasePhone:
     type: mappedSuperclass
-    table: email
-    repositoryClass: Grossum\ContactBundle\Entity\Repository\EmailRepository
+    table: phone
     fields:
-        email:
+        phone:
             type: string
             length: 255
         enabled:

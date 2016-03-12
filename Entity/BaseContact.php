@@ -2,17 +2,14 @@
 
 namespace Grossum\ContactBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
-/**
- * Contact
- */
-class Contact
+abstract class BaseContact
 {
     use DateTimeControlTrait;
-
-    protected $id;
 
     /**
      * @var string
@@ -25,9 +22,19 @@ class Contact
     protected $googleMapsLink;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $enabled;
+
+    /**
+     * @var BaseEmail[]|ArrayCollection
+     */
+    protected $emails;
+
+    /**
+     * @var BasePhone[]|ArrayCollection
+     */
+    protected $phones;
 
     /**
      * @var \DateTime
@@ -39,21 +46,17 @@ class Contact
      */
     protected $updatedAt;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->emails = new ArrayCollection();
+        $this->phones = new ArrayCollection();
     }
 
     /**
      * Set name
      *
      * @param string $name
-     * @return Contact
+     * @return $this
      */
     public function setName($name)
     {
@@ -76,7 +79,7 @@ class Contact
      * Set googleMapsLink
      *
      * @param string $googleMapsLink
-     * @return Contact
+     * @return $this
      */
     public function setGoogleMapsLink($googleMapsLink)
     {
@@ -98,8 +101,8 @@ class Contact
     /**
      * Set enabled
      *
-     * @param boolean $enabled
-     * @return Contact
+     * @param bool $enabled
+     * @return $this
      */
     public function setEnabled($enabled)
     {
@@ -111,7 +114,7 @@ class Contact
     /**
      * Get enabled
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -119,10 +122,64 @@ class Contact
     }
 
     /**
+     * @param BaseEmail $email
+     * @return $this
+     */
+    public function addEmail(BaseEmail $email)
+    {
+        $this->emails[] = $email;
+
+        return $this;
+    }
+
+    /**
+     * @param BaseEmail $email
+     */
+    public function removeEmail(BaseEmail $email)
+    {
+        $this->emails->removeElement($email);
+    }
+
+    /**
+     * @return ArrayCollection|BaseEmail[]
+     */
+    public function getEmails()
+    {
+        return $this->emails;
+    }
+
+    /**
+     * @param BasePhone $phone
+     * @return $this
+     */
+    public function addPhone(BasePhone $phone)
+    {
+        $this->phones[] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * @param BasePhone $phone
+     */
+    public function removePhone(BasePhone $phone)
+    {
+        $this->phones->removeElement($phone);
+    }
+
+    /**
+     * @return ArrayCollection|BasePhone[]
+     */
+    public function getPhones()
+    {
+        return $this->phones;
+    }
+
+    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Contact
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -145,7 +202,7 @@ class Contact
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Contact
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -169,6 +226,6 @@ class Contact
      */
     public function __toString()
     {
-        return $this->getName() ?: "Новый контакт";
+        return $this->getName() ?: 'New Contact';
     }
 }

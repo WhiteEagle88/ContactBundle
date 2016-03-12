@@ -1,33 +1,27 @@
 services:
-    sonata.admin.contact:
+    grossum_contact.admin.contact:
         class: %grossum_contact.contact.admin.class%
         tags:
-            - { name: sonata.admin, manager_type: orm, group: group.main, label: "Контакты" }
+            - { name: sonata.admin, manager_type: orm, group: group.main, label: "grossum_contact.admin.contact.plural_label" }
         arguments:
             - ~
             - %grossum_contact.contact.entity.class%
             - ~
-        calls:
-            - [ setContactManager, [@grossum_contact.contact.manager]]
 
-    sonata.admin.email:
+    grossum_contact.admin.email:
         class: %grossum_contact.email.admin.class%
         tags:
-            - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "E-Mail'ы" }
+            - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "grossum_contact.admin.email.plural_label" }
         arguments:
             - ~
             - %grossum_contact.email.entity.class%
             - ~
-        calls:
-            - [ setEmailManager, [@grossum_contact.email.manager]]
 
-    sonata.admin.phone:
+    grossum_contact.admin.phone:
         class: %grossum_contact.phone.admin.class%
         tags:
-            - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "Телефоны" }
+            - { name: sonata.admin, manager_type: orm, group: group.hidden, label: "grossum_contact.admin.phone.plural_label" }
         arguments:
             - ~
             - %grossum_contact.phone.entity.class%
             - ~
-        calls:
-            - [ setPhoneManager, [@grossum_contact.phone.manager]]
