@@ -6,9 +6,8 @@ Grossum\ContactBundle\Entity\BaseContact:
             type: string
             length: 255
             nullable: true
-        googleMapsLink:
+        googleMapCoordinates:
             type: text
-            column: google_maps_link
             nullable: true
         enabled:
             type: boolean

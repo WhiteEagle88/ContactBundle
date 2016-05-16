@@ -1,0 +1,34 @@
+{% block google_map_widget %}
+    <div class="form-group">
+        <input type="text" name="gmaps_autocomplete" class=" form-control"
+               placeholder="{{ 'grossum_contact.admin.contact.enter.address'|trans }}">
+        {{ block('form_widget_simple') }}
+    </div>
+    <div id="map" style="height: 200px; width: 100%"></div>
+    <script src="//maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/geocomplete/1.7.0/jquery.geocomplete.min.js"></script>
+    <script>
+        $(function () {
+            var options = {
+                map: "#map",
+                mapOptions: {
+                    zoom: 16
+                },
+                location: ''
+            },
+                    location = '',
+                    input_coordinates = $('input[id$=googleMapCoordinates]');
+
+            if (input_coordinates.val()) {
+                options.location = input_coordinates.val();
+            }
+
+            $('input[name=gmaps_autocomplete]')
+                    .geocomplete(options)
+                    .bind("geocode:result", function (event, result) {
+                        location = result.geometry.location.toUrlValue();
+                        input_coordinates.val(location);
+                    });
+        });
+    </script>
+{% endblock google_map_widget %}

@@ -2,6 +2,7 @@
 
 namespace Grossum\ContactBundle\Admin;
 
+use Grossum\ContactBundle\Form\Type\GoogleMapType;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -16,7 +17,10 @@ class ContactAdmin extends Admin
     {
         $formMapper
             ->add('name', null, ['label' => 'grossum_contact.admin.contact.name'])
-            ->add('googleMapsLink', null, ['label' => 'grossum_contact.admin.contact.google_maps_code'])
+            ->add('googleMapCoordinates', GoogleMapType::class, [
+                'label' => 'grossum_contact.admin.contact.google_maps_code',
+                'required' => false,
+            ])
             ->add('enabled', null, ['label' => 'grossum_contact.admin.enabled', 'required' => false])
             ->add(
                 'phones',

@@ -19,7 +19,7 @@ abstract class BaseContact
     /**
      * @var string
      */
-    protected $googleMapsLink;
+    protected $googleMapCoordinates;
 
     /**
      * @var bool
@@ -53,49 +53,36 @@ abstract class BaseContact
     }
 
     /**
-     * Set name
+     * Get google map coordinates.
+     * @return string
+     */
+    public function getGoogleMapCoordinates()
+    {
+        return $this->googleMapCoordinates;
+    }
+
+    /**
+     * Set google map coordinates.
      *
-     * @param string $name
+     * @param string $googleMapCoordinates
+     *
      * @return $this
      */
-    public function setName($name)
+    public function setGoogleMapCoordinates($googleMapCoordinates)
     {
-        $this->name = $name;
+        $this->googleMapCoordinates = $googleMapCoordinates;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get enabled
      *
-     * @return string
+     * @return bool
      */
-    public function getName()
+    public function getEnabled()
     {
-        return $this->name;
-    }
-
-    /**
-     * Set googleMapsLink
-     *
-     * @param string $googleMapsLink
-     * @return $this
-     */
-    public function setGoogleMapsLink($googleMapsLink)
-    {
-        $this->googleMapsLink = $googleMapsLink;
-
-        return $this;
-    }
-
-    /**
-     * Get googleMapsLink
-     *
-     * @return string
-     */
-    public function getGoogleMapsLink()
-    {
-        return $this->googleMapsLink;
+        return $this->enabled;
     }
 
     /**
@@ -109,16 +96,6 @@ abstract class BaseContact
         $this->enabled = $enabled;
 
         return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
     }
 
     /**
@@ -176,6 +153,16 @@ abstract class BaseContact
     }
 
     /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
@@ -189,13 +176,13 @@ abstract class BaseContact
     }
 
     /**
-     * Get createdAt
+     * Get updatedAt
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getUpdatedAt()
     {
-        return $this->createdAt;
+        return $this->updatedAt;
     }
 
     /**
@@ -212,20 +199,33 @@ abstract class BaseContact
     }
 
     /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
      * @return string
      */
     public function __toString()
     {
         return $this->getName() ?: 'New Contact';
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }
