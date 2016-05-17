@@ -7,6 +7,7 @@ grossum_contact:
             name: 'Name'
             google_maps_code: 'Google Maps Code'
             enabled: 'Enabled'
+            enter.address: Please, enter the address here
         email:
             label: 'E-mail'
             plural_label: 'E-mails'
