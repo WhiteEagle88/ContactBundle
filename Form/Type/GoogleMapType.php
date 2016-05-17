@@ -10,8 +10,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GoogleMapType extends AbstractType
 {
-    const NAME = 'google_map';
-
     /**
      * {@inheritdoc}
      */
@@ -26,14 +24,6 @@ class GoogleMapType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefault('type', 'hidden');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return self::NAME;
     }
 
     /**

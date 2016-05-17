@@ -2,11 +2,12 @@
 
 namespace Grossum\ContactBundle\Admin;
 
-use Grossum\ContactBundle\Form\Type\GoogleMapType;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+
+use Grossum\ContactBundle\Form\Type\GoogleMapType;
 
 class ContactAdmin extends Admin
 {

@@ -13,20 +13,23 @@
                 map: "#map",
                 mapOptions: {
                     zoom: 16
-                },
-                location: ''
-            },
-                    location = '',
-                    input_coordinates = $('input[id$=googleMapCoordinates]');
+                }
+            };
+            var input_coordinates = $('input[id$=googleMapCoordinates]');
 
             if (input_coordinates.val()) {
                 options.location = input_coordinates.val();
             }
 
             $('input[name=gmaps_autocomplete]')
+                    .keyup(function (event) {
+                        var key = event.keyCode || event.charCode;
+                        if (key == 8 || key == 46)
+                            input_coordinates.val('');
+                    })
                     .geocomplete(options)
                     .bind("geocode:result", function (event, result) {
-                        location = result.geometry.location.toUrlValue();
+                        var location = result.geometry.location.toUrlValue();
                         input_coordinates.val(location);
                     });
         });
