@@ -1,3 +1,8 @@
+Contact Bundle
+==============
+
+[![Latest Stable Version](https://poser.pugx.org/grossum/contact-bundle/v/stable)](https://packagist.org/packages/grossum/contact-bundle) [![Total Downloads](https://poser.pugx.org/grossum/contact-bundle/downloads)](https://packagist.org/packages/grossum/contact-bundle) [![Latest Unstable Version](https://poser.pugx.org/grossum/contact-bundle/v/unstable)](https://packagist.org/packages/grossum/contact-bundle) [![License](https://poser.pugx.org/grossum/contact-bundle/license)](https://packagist.org/packages/grossum/contact-bundle)
+
 Installation
 ============
 
