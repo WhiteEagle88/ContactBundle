@@ -47,3 +47,11 @@ class AppKernel extends Kernel
     // ...
 }
 ```
+
+Step 3: Set Google JavaScript API key in config.yml
+-----------------------------------------------
+
+```yml
+grossum_contact:
+    google_javascript_api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
