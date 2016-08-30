@@ -16,6 +16,11 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('grossum_contact');
 
+        $rootNode
+            ->children()
+                ->scalarNode('google_javascript_api_key')->isRequired()
+            ->end();
+
         $this->addModelSection($rootNode);
 
         return $treeBuilder;

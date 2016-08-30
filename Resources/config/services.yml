@@ -16,3 +16,10 @@ services:
         arguments:
             - @grossum_core.entity_manager
             - %grossum_contact.phone.entity.class%
+
+    grossum_contact.form.type.google_map:
+        class: %grossum_contact.form.type.google_map.class%
+        arguments:
+            - "%grossum_contact.google_javascript_api_key%"
+        tags:
+            - { name: form.type }

@@ -47,6 +47,8 @@ class GrossumContactExtension extends Extension
         $container->setParameter('grossum_contact.contact.entity.class', $config['class']['contact']);
         $container->setParameter('grossum_contact.email.entity.class', $config['class']['email']);
         $container->setParameter('grossum_contact.phone.entity.class', $config['class']['phone']);
+
+        $container->setParameter('grossum_contact.google_javascript_api_key', $config['google_javascript_api_key']);
     }
 
     /**
